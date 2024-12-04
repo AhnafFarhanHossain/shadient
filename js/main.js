@@ -2,6 +2,7 @@ import { initHeroAnimations } from './hero.js';
 import { initCompaniesAnimations } from './companies.js';
 import { initServicesAnimations } from './services.js';
 import { initWhyChooseUsAnimations } from './why-choose-us.js';
+import { initWorksAnimation } from './works.js';
 import { initNavbar } from './navbar.js';
 import './slider.js';
 import './lenis.js';
@@ -13,4 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initCompaniesAnimations();
     initServicesAnimations();
     initWhyChooseUsAnimations();
+    initWorksAnimation();
 });
