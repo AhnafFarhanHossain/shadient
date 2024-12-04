@@ -5,10 +5,11 @@ import { initWhyChooseUsAnimations } from './why-choose-us.js';
 import { initWorksAnimation } from './works.js';
 import { initNavbar } from './navbar.js';
 import './slider.js';
-import './lenis.js';
+import { initLenis } from './lenis.js';
 
 // Initialize all components
 document.addEventListener('DOMContentLoaded', () => {
+    initLenis();
     initNavbar(); // Initialize navbar
     initHeroAnimations();
     initCompaniesAnimations();
