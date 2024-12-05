@@ -331,7 +331,6 @@ button {
   justify-content: space-between;
   margin-bottom: 4.5rem;
   gap: 2rem;
-  flex-wrap: wrap; /* Allow wrapping to prevent overflow */
 }
 .companies__top .left,
 .companies__top .right {
@@ -373,9 +372,11 @@ button {
 /* Service Section */
 .services {
   background: var(--dark-gray);
+  overflow: hidden;
 }
 .services .container {
   padding: 5rem 1rem;
+  overflow: hidden;
 }
 .services .services__title {
   font-size: 40px;
@@ -399,6 +400,7 @@ button {
   row-gap: 40px;
   place-items: center;
   padding: 0 111px;
+  overflow: hidden;
 }
 .services__wrapper .wrapper__card {
   padding: 20px;
@@ -551,6 +553,78 @@ button {
   padding: 2px;
 }
 
+/* Testimonials Section */
+.testimonials {
+  background: var(--black);
+}
+.testimonials .container {
+  padding: 7rem 1rem;
+  position: relative;
+}
+.testimonials .container span {
+  font-size: 40px;
+  font-weight: 700;
+}
+.testimonials .carousel {
+  margin: 100px auto 0;
+  width: 100%;
+}
+.testimonials .carousel__navigation {
+  position: absolute;
+  top: 7rem;
+  right: 24px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+.testimonials .carousel__navigation-button {
+  background-color: var(--dark-gray);
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+.testimonials .carousel__navigation-button:hover {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+.testimonials .carousel__slide .card {
+  background: #0f0f0f;
+  padding: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  height: 100%;
+}
+.testimonials .carousel__slide .card__top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.testimonials .carousel__slide .card__top img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+.testimonials .carousel__slide .card__top .card__top__right h1 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.testimonials .carousel__slide .card__top .card__top__right span {
+  font-size: 14px;
+  color: var(--yellow);
+}
+.testimonials .carousel__slide .card p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 /* Responsive Design */
 
 @media screen and (max-width: 1024px) {
@@ -599,8 +673,15 @@ button {
   .works .container .works__wrapper .wrapper__left .works__text {
     text-align: center;
   }
+  .testimonials .container {
+    padding: 5rem 1rem;
+  }
+  .testimonials .container span {
+    font-size: 32px;
+  }
 }
-@media screen and (max-width: 768px) {
+
+@media (max-width: 768px) {
   .navbar .nav__menu {
     position: fixed;
     top: 0;
@@ -662,130 +743,37 @@ button {
   .works .works__wrapper .wrapper__right .right__grid .card-xl {
     grid-row: span 1;
   }
-}
-
-@media (max-width: 1024px) {
-  .container {
-    padding: 24px;
+  .testimonials .container {
+    padding: 4rem 1rem;
   }
-
-  .main__title {
-    font-size: 5.5rem;
+  .testimonials .container span {
+    font-size: 28px;
   }
-}
-
-@media (max-width: 768px) {
-  .navbar .nav__menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: min(300px, 80vw);
-    background: rgba(17, 15, 15, 0.95);
-    -webkit-backdrop-filter: blur(30px);
-    backdrop-filter: blur(30px);
-    flex-direction: column;
-    padding: 80px 32px 32px 32px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
-    display: flex !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    box-sizing: border-box;
+  .testimonials .carousel {
+    margin: 60px auto 0;
   }
-
-  .navbar .nav__menu-icon {
-    display: flex;
-    align-items: center;
+  .testimonials .carousel__navigation {
+    position: static;
     justify-content: center;
-    position: fixed;
-    top: 24px;
-    right: 24px;
-    z-index: 1001;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
-
-  .navbar .nav__menu {
-    z-index: 1000;
-  }
-
-  body.menu-open {
-    overflow: hidden;
-  }
-
-  .navbar .nav__menu .nav__link {
-    font-size: 1.1rem;
-    padding: 0.5rem 0;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.3s ease;
-    transition-delay: 0.1s;
-  }
-
-  .navbar .nav__menu.show .nav__link {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .navbar .nav__menu .nav__link:nth-child(2) {
-    transition-delay: 0.2s;
-  }
-
-  .navbar .nav__menu .nav__link:nth-child(3) {
-    transition-delay: 0.3s;
-  }
-
-  .navbar .nav__menu .btn-primary {
-    margin-top: 1.5rem;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.3s ease;
-    transition-delay: 0.4s;
-  }
-
-  .navbar .nav__menu.show .btn-primary {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .main__input-group {
-    flex-direction: column;
-    width: 100%;
-    max-width: 450px;
-  }
-
-  .main__input-group input {
-    width: 100%;
-  }
-
-  .main__btn {
-    width: 100%;
-  }
-
-  .main__title {
-    font-size: 4.5rem;
-    margin-top: 9rem;
+  .testimonials .carousel__navigation-button {
+    padding: 15px;
   }
   .companies__top {
     flex-direction: column;
-    gap: 2rem;
-  }
-
-  .services .container {
-    padding: 3rem 1rem;
-  }
-
-  .services .services__title {
-    font-size: 32px;
-  }
-
-  .services__wrapper {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
+  .main__input-group {
+    flex-direction: column;
+  }
+  .main__input-group .main__btn,
+  .main__input-group input {
+    width: 100%;
+  }
   .why-choose-us .choose__wrapper {
     gap: 2rem;
   }
@@ -796,8 +784,14 @@ button {
     font-size: 12px;
   }
 
+  .services {
+    background: var(--dark-gray);
+    overflow: hidden;
+  }
+
   .services .container {
     padding: 2rem 1rem;
+    overflow: hidden;
   }
 
   .services .services__title {
@@ -806,11 +800,36 @@ button {
 
   .services__wrapper {
     grid-template-columns: 1fr;
+    padding: 0;
+    overflow: hidden;
   }
 
   .services__wrapper .wrapper__card {
     width: 100%;
     max-width: 320px;
+    overflow: hidden;
+  }
+  .testimonials .container {
+    padding: 3rem 1rem;
+  }
+  .testimonials .container span {
+    font-size: 24px;
+  }
+  .testimonials .carousel {
+    margin: 50px auto 0;
+  }
+  .testimonials .carousel__slide .card {
+    padding: 16px;
+  }
+  .testimonials .carousel__slide .card__top {
+    gap: 8px;
+  }
+  .testimonials .carousel__slide .card__top img {
+    width: 40px;
+    height: 40px;
+  }
+  .testimonials .carousel__slide .card p {
+    font-size: 13px;
   }
 }
 

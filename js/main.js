@@ -4,16 +4,20 @@ import { initServicesAnimations } from './services.js';
 import { initWhyChooseUsAnimations } from './why-choose-us.js';
 import { initWorksAnimation } from './works.js';
 import { initNavbar } from './navbar.js';
+import { initCarousel } from './carousel.js';
+import { initTestimonialsAnimations } from './testimonials.js';
 import './slider.js';
 import { initLenis } from './lenis.js';
 
 // Initialize all components
 document.addEventListener('DOMContentLoaded', () => {
-    initLenis();
     initNavbar(); // Initialize navbar
+    initLenis();
     initHeroAnimations();
     initCompaniesAnimations();
     initServicesAnimations();
     initWhyChooseUsAnimations();
     initWorksAnimation();
+    initCarousel();
+    initTestimonialsAnimations(); // Initialize testimonials animations
 });
