@@ -6,9 +6,7 @@ export function initCarousel() {
       margin: 24,
       nav: false,
       dots: false,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      smartSpeed: 1000,
+      smartSpeed: 500,
       responsive: {
         0: {
           items: 1,
