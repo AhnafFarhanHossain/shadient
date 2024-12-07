@@ -1,0 +1,276 @@
+/* Bricolage Grotesque Font */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap");
+
+/* Variables */
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --yellow: #ffa800;
+  --text: #e7e7e7;
+  --transition: all 0.375s ease;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--yellow);
+  color: var(--black);
+  -webkit-text-fill-color: var(--black);
+}
+
+::-moz-selection {
+  background: var(--yellow);
+  color: var(--black);
+  -webkit-text-fill-color: var(--black);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Bricolage Grotesque", sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  background: url(../img/bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--white);
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+p {
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+p {
+  color: var(--text);
+  font-weight: 100;
+  letter-spacing: 2%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+strong {
+  text-transform: uppercase;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: linear-gradient(var(--black), rgba(0, 0, 0, 0.3));
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent);
+  pointer-events: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar .nav__logo img {
+  max-width: 100%;
+}
+
+.navbar .nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar .nav__menu .nav__link {
+  font-size: 16px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navbar .nav__menu .nav__link:first-child {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav__menu .nav__link:first-child i {
+  font-size: 1.5rem;
+}
+
+.navbar .nav__menu .nav__link:hover {
+  color: var(--yellow);
+}
+
+/* Hamburger Menu Icon */
+.navbar .nav__menu-icon {
+  display: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  z-index: 100;
+  padding: 6px;
+}
+
+.navbar .nav__menu-icon .line {
+  display: block;
+  position: absolute;
+  height: 2px;
+  background: var(--white);
+  border-radius: 6px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  right: 6px;
+}
+
+.navbar .nav__menu-icon .line-1 {
+  top: 12px;
+  width: 20px;
+}
+
+.navbar .nav__menu-icon .line-2 {
+  bottom: 12px;
+  width: 12px;
+}
+
+/* Menu Icon Animation */
+.navbar .nav__menu-icon.active .line-1 {
+  transform: translateY(4px) rotate(45deg);
+  width: 20px;
+}
+
+.navbar .nav__menu-icon.active .line-2 {
+  transform: translateY(-4px) rotate(-45deg);
+  width: 20px;
+}
+
+/* Button Styles */
+.btn-primary {
+  position: relative;
+  padding: 10px 20px;
+  background: none;
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+  border-radius: 30px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--yellow);
+  top: 100%;
+  left: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.btn-primary:hover::before {
+  top: 0;
+}
+
+/* Container */
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar .nav__menu {
+    display: none;
+  }
+
+  .navbar .nav__menu-icon {
+    display: block;
+  }
+
+  .navbar .nav__menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1001;
+  }
+
+  .navbar .nav__menu .nav__link {
+    font-size: 1.1rem;
+  }
+
+  .navbar .nav__menu .btn-primary {
+    margin-top: 1.5rem;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
